@@ -1,4 +1,4 @@
-# MillerBilt Cabinetry — full fact sheet
+# MillerBilt Cabinetry fact sheet
 
 Source page: https://koffeekinggamer.github.io/millerbilt/
 This file restates that page. It does not add prices, dates, warranties, or an email.
@@ -19,7 +19,7 @@ Today, MillerBilt pairs that respect for craftsmanship with local guidance: meas
 
 Kitchens: perimeter runs, islands, pantries, and appliance panels. Often the first room designed, planned so the rest of the house can match.
 
-Throughout the home: baths and vanities, mudrooms, laundry, closets, built-ins, bars, and media walls — the same woods, stains, and hardware from kitchen to last closet.
+Throughout the home: baths and vanities, mudrooms, laundry, closets, built-ins, bars, and media walls. The same woods, stains, and hardware run from the kitchen to the last closet.
 
 Workplace and commercial: private offices, conference and reception, break rooms, and millwork for retail, clinic, and hospitality interiors under one finish plan.
 
@@ -27,7 +27,7 @@ Workplace and commercial: private offices, conference and reception, break rooms
 
 Value, Signature, and Designer. The team helps clients choose in the showroom.
 
-Value — full overlay with a 1/4-inch reveal. Customer-supplied hardware.
+Value. Full overlay with a 1/4 inch reveal. Customer-supplied hardware.
 - Full overlay cabinet doors with a 1/4-inch reveal between doors and flush on finished ends
 - Solid hardwood face frame
 - Door and drawer options: shaker, slab, or raised
@@ -35,7 +35,7 @@ Value — full overlay with a 1/4-inch reveal. Customer-supplied hardware.
 - Blum soft-close under-mount glides
 - Blum soft-close concealed hinges
 - Any standard paint or wiping stain included (custom finishes optional)
-- Standard wall heights (36–39 inches)
+- Standard wall heights (36 to 39 inches)
 - One-step crown and light-rail molding optional
 - Basic filler and scribe molding included
 - Standard toe kick
@@ -45,7 +45,7 @@ Value — full overlay with a 1/4-inch reveal. Customer-supplied hardware.
 - Flat finished cabinet end panels
 - Customer-supplied hardware
 
-Signature — full overlay frameless with a 1/4-inch reveal. Optional $2,000 hardware allowance, not included in the cabinet price.
+Signature. Full overlay frameless with a 1/4 inch reveal. Optional $2,000 hardware allowance, not included in the cabinet price.
 - Frameless (Euro-style) solid wood cabinetry
 - Full overlay cabinet doors with a 1/4-inch reveal between doors and flush on finished ends
 - Door and drawer options: shaker, slab, or raised
@@ -61,12 +61,12 @@ Signature — full overlay frameless with a 1/4-inch reveal. Optional $2,000 har
 - Modern trim styles available
 - Tray dividers optional
 - Appliance panels optional
-- Standard wall heights (36–39 inches), optional upgrade to taller cabinets
+- Standard wall heights (36 to 39 inches), optional upgrade to taller cabinets
 - Designer toe kicks optional
 - Flat finished cabinet end panels
 - Mid-level hardware allowance optional ($2,000)
 
-Designer — inset with face frame. Optional $3,000 hardware allowance, not a cabinet price.
+Designer. Inset with face frame. Optional $3,000 hardware allowance, not a cabinet price.
 - Flush inset doors with face frame (optional upgrade to beaded inset)
 - Solid hardwood face frame
 - Door and drawer options: shaker, slab, or raised
@@ -98,8 +98,6 @@ Install: MillerBilt’s own installers handle delivery and installation on site.
 
 ## A note on Amish cabinetry
 
-General background. Not a MillerBilt specification.
-
 Amish cabinetry is a tradition of workshop-made work, not one universal construction standard. Many builders pair solid hardwood doors and frames with plywood cabinet boxes, and use interlocking dovetail joints in their drawers. Wood choice, fit, hardware and finish all deserve a closer look.
 
 Oak, maple, cherry, hickory and walnut each bring their own grain and character. Finish samples are worth seeing in your own light. Ask which woods and construction details are available in the series you’re considering.
@@ -129,13 +127,13 @@ Bridgeman Builders: recommended contractor for new home builds and large remodel
 
 Landrum, inside Foothills Amish Furniture
 106 E. Rutherford St, Landrum, SC 29356
-Monday–Saturday 10 a.m.–5 p.m. Sunday closed. Meetings by appointment.
+Monday to Saturday, 10 a.m. to 5 p.m. Sunday closed. Meetings by appointment.
 Phone: (864) 457-2400
 Schedule: https://foothillsamishfurniture.com/products/60-minute-foothills-cabinetry-appointment
 
 Charleston, located independently inside Charleston Amish Furniture
 1750 Sam Rittenberg Blvd, Charleston, SC 29407
-Monday–Saturday 10 a.m.–6 p.m. Sunday closed. Meetings by appointment.
+Monday to Saturday, 10 a.m. to 6 p.m. Sunday closed. Meetings by appointment.
 Phone: (843) 371-4636
 Schedule: https://foothillsamishfurniture.com/products/mbc-60-minute-cabinetry-appointment
 This showroom is the MillerBilt cabinetry team’s space within Charleston Amish Furniture. Do not say Judson owns that furniture store.
@@ -147,6 +145,5 @@ Booking continues on those schedulers. This page does not take appointment reque
 - No furniture-store services, shipping promises, or upholstery.
 - No founding date, awards, ratings, price list, lead time, or warranty.
 - No hand finishing, dovetail drawers, all-plywood boxes, named lumber source, or KCMA certification for MillerBilt.
-- The educational note about woods and joints is not a MillerBilt product specification.
 - Hardware allowances ($2,000 Signature, $3,000 Designer) are optional and are not cabinet prices.
 - https://millerbilt.com is not the address of this page. Use https://koffeekinggamer.github.io/millerbilt/

@@ -624,12 +624,6 @@ p {
   max-width: 40rem;
 }
 
-.note-label {
-  margin-bottom: 1.5rem;
-  color: var(--walnut-deep);
-  font-weight: 500;
-}
-
 .note-body p + p {
   margin-top: 1.15rem;
 }
