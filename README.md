@@ -2,13 +2,20 @@
 
 Static marketing site for MillerBilt Cabinetry. Custom Amish-made cabinets, with showrooms in Landrum and Charleston, South Carolina.
 
-The site is a single page: `index.html` at the repository root, with `css/`, `js/`, and `images/`.
+The site is a single page at the repository root: `index.html`, with `css/`, `js/`, and `images/`.
 
 ## GitHub Pages
 
-Pages publishes the branch `cursor/millerbilt-site-28f0` from the repository **root** (`/`). There is no custom domain and no `CNAME` file. `millerbilt.com` is unchanged.
+Publish from a branch, folder **`/ (root)`**. There is no custom domain and no `CNAME` file. Do not point `millerbilt.com` at this preview.
 
-Preview: https://koffeekinggamer.github.io/millerbilt/
+In the repository: **Settings → Pages → Build and deployment → Deploy from a branch**.
+
+- Branch: `cursor/millerbilt-site-28f0` while this branch holds the site, or `main` after it is merged
+- Folder: `/ (root)`
+
+Once that is saved, the preview is:
+
+https://koffeekinggamer.github.io/millerbilt/
 
 Appointment buttons leave this site and open the existing Landrum and Charleston schedulers. This page does not collect form submissions.
 
