@@ -700,6 +700,21 @@ p {
   padding-top: 2rem;
 }
 
+.partner-mark {
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin: 0 0 1.15rem;
+  background: var(--cream-deep);
+}
+
+.partner-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .partner a {
   font-family: var(--serif);
   font-size: 1.55rem;
