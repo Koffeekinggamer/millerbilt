@@ -19,6 +19,8 @@ https://koffeekinggamer.github.io/millerbilt/
 
 Appointment buttons leave this site and open the existing Landrum and Charleston schedulers. This page does not collect form submissions.
 
+Also at the root: `robots.txt` (allows search and AI crawlers and points at the sitemap), `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Canonical and social URLs use the GitHub Pages preview, not millerbilt.com.
+
 ## Local preview
 
 From the repository root:
