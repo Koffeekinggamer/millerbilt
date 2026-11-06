@@ -483,6 +483,10 @@ p {
   object-position: center 18%;
 }
 
+.shot-island .shot-frame img {
+  object-position: center 48%;
+}
+
 .trio {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
