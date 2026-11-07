@@ -17,7 +17,7 @@ Once that is saved, the preview is:
 
 https://koffeekinggamer.github.io/millerbilt/
 
-Appointment buttons leave this site. Landrum opens a Google Calendar booking page. Charleston opens the existing scheduler. This page does not collect form submissions.
+Appointment buttons leave this site. Both locations open the Google Calendar booking page. This page does not collect form submissions.
 
 Also at the root: `robots.txt` (allows search and AI crawlers and points at the sitemap), `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Canonical and social URLs use the GitHub Pages preview, not millerbilt.com.
 
