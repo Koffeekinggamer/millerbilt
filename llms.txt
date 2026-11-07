@@ -19,12 +19,12 @@ Three series: Value, Signature, and Designer. The team helps clients choose in t
 ## Showrooms
 
 Landrum: inside Foothills Amish Furniture, 106 E. Rutherford St, Landrum, SC 29356. (864) 457-2400. Monday to Saturday, 10 a.m. to 5 p.m. Sunday closed. Meetings by appointment.
-Schedule: https://calendar.google.com/calendar/appointments/schedules/AcZssZ3UBT0NyJECheQ89FWS2nPIaiScCOHumOXDFyB55BimrHDXCUpxhnxq8GS_GbpXqUqXnRf7fwzE
+Schedule: https://koffeekinggamer.github.io/millerbilt/#book
 
 Charleston: located independently inside Charleston Amish Furniture, 1750 Sam Rittenberg Blvd, Charleston, SC 29407. (843) 371-4636. Monday to Saturday, 10 a.m. to 6 p.m. Sunday closed. Meetings by appointment. This is the MillerBilt cabinetry team’s space within Charleston Amish Furniture.
-Schedule: https://calendar.google.com/calendar/appointments/schedules/AcZssZ3UBT0NyJECheQ89FWS2nPIaiScCOHumOXDFyB55BimrHDXCUpxhnxq8GS_GbpXqUqXnRf7fwzE
+Schedule: https://koffeekinggamer.github.io/millerbilt/#book
 
-Both locations open the Google Calendar booking page. No appointment form is on this page.
+Both locations use the same booking calendar on this page for now, the Landrum schedule. There is no separate Charleston calendar. This page does not collect its own appointment form.
 
 ## People
 

@@ -823,6 +823,30 @@ p {
   align-self: flex-start;
 }
 
+.book-embed {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  scroll-margin-top: calc(var(--header-h) + 1.25rem);
+}
+
+.book-embed h3 {
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  margin-bottom: 0.85rem;
+}
+
+.book-embed p {
+  max-width: 40rem;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: #ddd4c8;
+}
+
+.book-frame {
+  display: block;
+  width: 100%;
+  height: max(720px, min(800px, 92vh));
+  border: 0;
+  background: #fff;
+}
+
 .site-footer {
   background: var(--charcoal-deep);
   color: #d9d0c4;
