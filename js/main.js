@@ -124,3 +124,40 @@
     });
   });
 })();
+
+(function () {
+  var dialog = document.querySelector(".viewer");
+  var viewerImg = dialog && dialog.querySelector("img");
+  var viewerCap = dialog && dialog.querySelector("figcaption");
+  if (!dialog || !viewerImg || typeof dialog.showModal !== "function") return;
+
+  document.querySelectorAll(".plate-open").forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      var img = link.querySelector("img");
+      var figure = link.closest("figure");
+      var cap = figure && figure.querySelector("figcaption");
+      if (!img) return;
+      event.preventDefault();
+      viewerImg.src = img.currentSrc || img.src;
+      viewerImg.alt = img.alt || "";
+      viewerImg.width = img.naturalWidth || img.width;
+      viewerImg.height = img.naturalHeight || img.height;
+      if (viewerCap) {
+        viewerCap.textContent = cap ? cap.textContent.trim() : "";
+        viewerCap.hidden = !viewerCap.textContent;
+      }
+      dialog.showModal();
+    });
+  });
+
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+
+  var closeBtn = dialog.querySelector(".viewer-close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      dialog.close();
+    });
+  }
+})();
