@@ -1013,12 +1013,36 @@ p {
   color: #ddd4c8;
 }
 
+.book-clip {
+  overflow: hidden;
+  background: #fff;
+  container-type: inline-size;
+}
+
 .book-frame {
   display: block;
   width: 100%;
-  height: max(720px, min(800px, 92vh));
+  height: 1056px;
   border: 0;
   background: #fff;
+}
+
+@container (min-width: 680px) {
+  .book-frame {
+    height: 568px;
+  }
+}
+
+@container (min-width: 740px) {
+  .book-frame {
+    height: 616px;
+  }
+}
+
+@container (min-width: 960px) {
+  .book-frame {
+    height: 598px;
+  }
 }
 
 .site-footer {
