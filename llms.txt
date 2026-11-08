@@ -20,6 +20,8 @@ Three series: Value, Signature, and Designer. The team helps clients choose in t
 
 Photographs are grouped by project. Snowy Egret, Kiawah: a green kitchen, blue baths and laundry, a white pantry, cane-front built-ins, and a covered outdoor grill. Smith, including laundry: credit Brittanya Tammearu Interiors, and do not apply that credit to other projects. Hobcaw: a ribbed wood island and a home bar. A separate white kitchen is shown without a designer credit. Landrum and Charleston are the showrooms.
 
+Every photograph on the page has alt text. The alt text names the project, or the person or partner, and describes what is pictured. The image sitemap repeats those descriptions. Smith alt text includes the credit Brittanya Tammearu Interiors. Do not apply that credit to other projects.
+
 ## Showrooms
 
 Landrum: inside Foothills Amish Furniture, 106 E. Rutherford St, Landrum, SC 29356. (864) 457-2400. Monday to Saturday, 10 a.m. to 5 p.m. Sunday closed. Meetings by appointment.

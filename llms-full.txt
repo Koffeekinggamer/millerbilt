@@ -127,6 +127,8 @@ Bridgeman Builders: recommended contractor for new home builds and large remodel
 
 The gallery is grouped by project rather than one grid. Snowy Egret (Kiawah) includes the green kitchen, blue baths and laundry, white pantry and glass-front storage, cane-front built-ins, a covered outdoor grill, and a media wall. Smith project photographs, including the laundry, are credited to Brittanya Tammearu Interiors. Do not apply that credit to Hobcaw, Snowy Egret, the white kitchen, or the showrooms. Hobcaw is a finished kitchen with a ribbed wood island and a home bar. The white kitchen is shown without a builder or designer name.
 
+Every photograph on the page has alt text that names the project, person, or partner and describes what is pictured. The image sitemap at https://koffeekinggamer.github.io/millerbilt/sitemap.xml repeats those descriptions. Smith alt text includes the credit Brittanya Tammearu Interiors.
+
 ## Showrooms and booking
 
 Landrum, inside Foothills Amish Furniture
