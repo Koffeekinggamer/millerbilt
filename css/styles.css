@@ -616,6 +616,10 @@ p {
   display: none;
 }
 
+.js .project:not(.is-open) .chapter:not(:has(.plate:not(.plate-more))) {
+  display: none;
+}
+
 .viewer {
   width: auto;
   max-width: calc(100vw - 1.5rem);
