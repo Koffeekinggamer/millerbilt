@@ -161,3 +161,19 @@
     });
   }
 })();
+
+(function () {
+  document.querySelectorAll(".see-more").forEach(function (button) {
+    var project = button.closest(".project");
+    if (!project) return;
+
+    button.addEventListener("click", function () {
+      var open = project.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.textContent = open ? "See fewer" : "See more";
+      if (!open) {
+        project.scrollIntoView({ block: "start" });
+      }
+    });
+  });
+})();

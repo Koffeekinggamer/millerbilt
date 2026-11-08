@@ -199,13 +199,20 @@ p {
 }
 
 .brand {
-  display: block;
+  display: flex;
+  align-items: center;
   flex: 0 0 auto;
+  gap: 0.7rem;
   line-height: 0;
 }
 
-.brand img {
-  height: 52px;
+.brand-mark {
+  height: 46px;
+  width: auto;
+}
+
+.brand-word {
+  height: 44px;
   width: auto;
 }
 
@@ -578,6 +585,35 @@ p {
 
 .credit {
   color: var(--muted);
+}
+
+.see-more {
+  display: none;
+}
+
+.js .see-more {
+  display: inline-block;
+  margin-top: 1.6rem;
+  padding: 0.1rem 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--walnut-deep);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.js .see-more:hover {
+  color: var(--ink);
+}
+
+.js .project:not(.is-open) .plate-more {
+  display: none;
 }
 
 .viewer {
@@ -1260,6 +1296,14 @@ p {
 
   .plate-3 {
     grid-column: span 3;
+  }
+
+  .brand-mark {
+    height: 38px;
+  }
+
+  .brand-word {
+    height: 36px;
   }
 
   .hero h1 {
