@@ -1,6 +1,6 @@
 # MillerBilt Cabinetry fact sheet
 
-Source page: https://koffeekinggamer.github.io/millerbilt/
+Source page: https://millerbilt.com/
 This file restates that page. It does not add prices, dates, warranties, or an email.
 
 ## Identity
@@ -127,7 +127,7 @@ Bridgeman Builders: recommended contractor for new home builds and large remodel
 
 The gallery is grouped by project rather than one grid. Snowy Egret (Kiawah) includes the green kitchen, blue baths and laundry, white pantry and glass-front storage, cane-front built-ins, a covered outdoor grill, and a media wall. Smith project photographs, including the laundry, are credited to Brittanya Tammearu Interiors. Do not apply that credit to Hobcaw, Snowy Egret, the white kitchen, or the showrooms. Hobcaw is a finished kitchen with a ribbed wood island and a home bar. The white kitchen is shown without a builder or designer name.
 
-Every photograph on the page has alt text that names the project, person, or partner and describes what is pictured. The image sitemap at https://koffeekinggamer.github.io/millerbilt/sitemap.xml repeats those descriptions. Smith alt text includes the credit Brittanya Tammearu Interiors.
+Every photograph on the page has alt text that names the project, person, or partner and describes what is pictured. The image sitemap at https://millerbilt.com/sitemap.xml repeats those descriptions. Smith alt text includes the credit Brittanya Tammearu Interiors.
 
 ## Showrooms and booking
 
@@ -135,13 +135,13 @@ Landrum, inside Foothills Amish Furniture
 106 E. Rutherford St, Landrum, SC 29356
 Monday to Saturday, 10 a.m. to 5 p.m. Sunday closed. Meetings by appointment.
 Phone: (864) 457-2400
-Schedule: https://koffeekinggamer.github.io/millerbilt/#book
+Schedule: https://millerbilt.com/#book
 
 Charleston, located independently inside Charleston Amish Furniture
 1750 Sam Rittenberg Blvd, Charleston, SC 29407
 Monday to Saturday, 10 a.m. to 6 p.m. Sunday closed. Meetings by appointment.
 Phone: (843) 371-4636
-Schedule: https://koffeekinggamer.github.io/millerbilt/#book
+Schedule: https://millerbilt.com/#book
 This showroom is the MillerBilt cabinetry team’s space within Charleston Amish Furniture. Do not say Judson owns that furniture store.
 
 Both locations use the same booking calendar embedded on this page for now, the Landrum schedule. There is no separate Charleston calendar. This page does not collect its own appointment form. No cabinetry email is published.
@@ -152,4 +152,4 @@ Both locations use the same booking calendar embedded on this page for now, the 
 - No founding date, awards, ratings, price list, lead time, or warranty.
 - No hand finishing, dovetail drawers, all-plywood boxes, named lumber source, or KCMA certification for MillerBilt.
 - Hardware allowances ($2,000 Signature, $3,000 Designer) are optional and are not cabinet prices.
-- https://millerbilt.com is not the address of this page. Use https://koffeekinggamer.github.io/millerbilt/
+- The public site is https://millerbilt.com/

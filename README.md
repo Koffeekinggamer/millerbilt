@@ -6,20 +6,15 @@ The site is a single page at the repository root: `index.html`, with `css/`, `js
 
 ## GitHub Pages
 
-Publish from a branch, folder **`/ (root)`**. There is no custom domain and no `CNAME` file. Do not point `millerbilt.com` at this preview.
+Published from `main`, folder `/ (root)`, with custom domain `millerbilt.com`. The `CNAME` file at the repository root is `millerbilt.com`.
 
-In the repository: **Settings → Pages → Build and deployment → Deploy from a branch**.
+Live site: https://millerbilt.com/
 
-- Branch: `cursor/millerbilt-site-28f0` while this branch holds the site, or `main` after it is merged
-- Folder: `/ (root)`
-
-Once that is saved, the preview is:
-
-https://koffeekinggamer.github.io/millerbilt/
+The former preview URL, https://koffeekinggamer.github.io/millerbilt/, will redirect to the custom domain once GitHub Pages has that domain set.
 
 Schedule buttons stay on this page and scroll to the embedded booking calendar at `#book`. Both locations use that same calendar for now, the Landrum schedule. This page does not collect its own form submissions.
 
-Also at the root: `robots.txt` (allows search and AI crawlers and points at the sitemap), `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Canonical and social URLs use the GitHub Pages preview, not millerbilt.com.
+Also at the root: `robots.txt` (allows search and AI crawlers and points at the sitemap), `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Canonical, Open Graph, JSON-LD, and sitemap URLs use https://millerbilt.com/.
 
 ## Local preview
 

@@ -1,5 +1,5 @@
 # MillerBilt Cabinetry
-# https://koffeekinggamer.github.io/millerbilt/
+# https://millerbilt.com/
 
 User-agent: *
 Allow: /
@@ -43,4 +43,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://koffeekinggamer.github.io/millerbilt/sitemap.xml
+Sitemap: https://millerbilt.com/sitemap.xml

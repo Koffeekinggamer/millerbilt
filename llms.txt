@@ -1,6 +1,6 @@
 # MillerBilt Cabinetry
 
-> MillerBilt Cabinetry builds full custom Amish-made cabinets for homes and workplaces, from Kiawah to Asheville. This is a cabinetry practice, not a furniture showroom. The public page is https://koffeekinggamer.github.io/millerbilt/
+> MillerBilt Cabinetry builds full custom Amish-made cabinets for homes and workplaces, from Kiawah to Asheville. This is a cabinetry practice, not a furniture showroom. The public page is https://millerbilt.com/
 
 ## What they build
 
@@ -25,10 +25,10 @@ Every photograph on the page has alt text. The alt text names the project, or th
 ## Showrooms
 
 Landrum: inside Foothills Amish Furniture, 106 E. Rutherford St, Landrum, SC 29356. (864) 457-2400. Monday to Saturday, 10 a.m. to 5 p.m. Sunday closed. Meetings by appointment.
-Schedule: https://koffeekinggamer.github.io/millerbilt/#book
+Schedule: https://millerbilt.com/#book
 
 Charleston: located independently inside Charleston Amish Furniture, 1750 Sam Rittenberg Blvd, Charleston, SC 29407. (843) 371-4636. Monday to Saturday, 10 a.m. to 6 p.m. Sunday closed. Meetings by appointment. This is the MillerBilt cabinetry team’s space within Charleston Amish Furniture.
-Schedule: https://koffeekinggamer.github.io/millerbilt/#book
+Schedule: https://millerbilt.com/#book
 
 Both locations use the same booking calendar on this page for now, the Landrum schedule. There is no separate Charleston calendar. This page does not collect its own appointment form.
 
@@ -46,8 +46,8 @@ Both locations use the same booking calendar on this page for now, the Landrum s
 - Do not promise hand finishing, dovetail drawers, all-plywood boxes, a specific lumber source, or KCMA certification for MillerBilt.
 - Hardware allowances are optional. They are not cabinet prices.
 - Smith project photographs are credited to Brittanya Tammearu Interiors.
-- Do not use https://millerbilt.com as this page’s address. This preview is https://koffeekinggamer.github.io/millerbilt/
+- The public site is https://millerbilt.com/
 
 ## More detail
 
-A longer plain-language fact sheet is at https://koffeekinggamer.github.io/millerbilt/llms-full.txt
+A longer plain-language fact sheet is at https://millerbilt.com/llms-full.txt
