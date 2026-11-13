@@ -86,7 +86,7 @@
         "potentialAction": {
           "@type": "ReserveAction",
           "name": "Schedule in Landrum",
-          "target": "https://millerbilt.com/#book"
+          "target": "https://millerbilt.com/#book-landrum"
         }
       },
       {
@@ -113,7 +113,7 @@
         "potentialAction": {
           "@type": "ReserveAction",
           "name": "Schedule in Charleston",
-          "target": "https://millerbilt.com/#book"
+          "target": "https://millerbilt.com/#book-charleston"
         }
       },
       {
@@ -1017,7 +1017,7 @@
         <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#appointments">Visit</a>
-        <a class="nav-cta" href="#appointments">Schedule</a>
+        <a class="nav-cta" href="#book">Schedule</a>
       </nav>
     </div>
   </header>
@@ -1030,7 +1030,7 @@
         <p class="lede">MillerBilt brings full custom cabinets to homes and workplaces, from Kiawah to Asheville. The same cabinetry team meets you in Landrum and in Charleston.</p>
         <p class="hero-note">Kitchens, built-ins, and millwork. This is a cabinetry practice, not a furniture showroom.</p>
         <div class="hero-actions">
-          <a class="btn" href="#appointments">Schedule a consultation</a>
+          <a class="btn" href="#book">Schedule a consultation</a>
           <a class="btn btn-ghost" href="#work">See the work</a>
         </div>
       </div>
@@ -1961,8 +1961,8 @@
             <p class="hours">Monday to Saturday, 10 a.m. to 5 p.m.<br>Sunday closed. Meetings by appointment.</p>
             <a class="phone" href="tel:+18644572400">(864) 457-2400</a>
             <a class="directions" href="https://www.google.com/maps/search/?api=1&amp;query=106+E.+Rutherford+St,+Landrum,+SC+29356" target="_blank" rel="noopener noreferrer">Directions<span class="sr-only"> to the Landrum showroom (opens in a new tab)</span></a>
-            <a class="btn" href="#book">Schedule in Landrum</a>
-            <p class="book-note">Scrolls to the calendar below.</p>
+            <a class="btn" href="#book-landrum" data-book="landrum">Schedule in Landrum</a>
+            <p class="book-note">Chooses the Landrum showroom below.</p>
           </article>
           <article class="book-card" data-reveal>
             <h3>MillerBilt Charleston</h3>
@@ -1974,15 +1974,51 @@
             <p class="hours">Monday to Saturday, 10 a.m. to 6 p.m.<br>Sunday closed. Meetings by appointment.</p>
             <a class="phone" href="tel:+18433714636">(843) 371-4636</a>
             <a class="directions" href="https://www.google.com/maps/search/?api=1&amp;query=1750+Sam+Rittenberg+Blvd,+Charleston,+SC+29407" target="_blank" rel="noopener noreferrer">Directions<span class="sr-only"> to the Charleston showroom (opens in a new tab)</span></a>
-            <a class="btn" href="#book">Schedule in Charleston</a>
-            <p class="book-note">Same calendar as Landrum, for now.</p>
+            <a class="btn" href="#book-charleston" data-book="charleston">Schedule in Charleston</a>
+            <p class="book-note">Chooses the Charleston showroom below.</p>
           </article>
         </div>
         <div class="book-embed" id="book">
-          <h3>Pick a time.</h3>
-          <p>Choose a showroom above if needed, then pick a time in the calendar below. Both buttons open the same booking calendar for now, the Landrum schedule.</p>
-          <div class="book-clip">
-            <iframe class="book-frame" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3UBT0NyJECheQ89FWS2nPIaiScCOHumOXDFyB55BimrHDXCUpxhnxq8GS_GbpXqUqXnRf7fwzE?gv=true" title="Book a MillerBilt cabinetry appointment" loading="lazy"></iframe>
+          <span id="book-landrum" class="book-anchor" aria-hidden="true"></span>
+          <span id="book-charleston" class="book-anchor" aria-hidden="true"></span>
+          <h3 id="book-title">Choose a showroom.</h3>
+          <p>Landrum and Charleston each have their own appointment schedule. Choose where you would like to visit.</p>
+          <div class="book-choice" role="group" aria-labelledby="book-title">
+            <div class="book-option">
+              <input class="book-radio" type="radio" name="book-showroom" id="pick-landrum" value="landrum" data-book-select="landrum">
+              <label class="book-pick" for="pick-landrum">Landrum</label>
+            </div>
+            <div class="book-option">
+              <input class="book-radio" type="radio" name="book-showroom" id="pick-charleston" value="charleston" data-book-select="charleston">
+              <label class="book-pick" for="pick-charleston">Charleston</label>
+            </div>
+          </div>
+          <p class="book-prompt" id="book-prompt">Select a showroom to schedule a visit.</p>
+          <div class="book-panel" id="book-panel-landrum" data-book-panel="landrum" role="region" aria-label="Landrum scheduling">
+            <div class="book-fallback" data-book-fallback>
+              <p>To schedule a visit in Landrum, call the showroom.</p>
+              <p><a class="phone" href="tel:+18644572400">(864) 457-2400</a></p>
+            </div>
+            <div class="book-live" data-book-live hidden>
+              <p class="book-live-note">Pick a time for the Landrum showroom.</p>
+              <p><a class="book-open" data-book-open target="_blank" rel="noopener noreferrer">Open the Landrum schedule<span class="sr-only"> (opens in a new tab)</span></a></p>
+              <div class="book-clip">
+                <iframe class="book-frame" title="Book a visit at the Landrum showroom" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="book-panel" id="book-panel-charleston" data-book-panel="charleston" role="region" aria-label="Charleston scheduling">
+            <div class="book-fallback" data-book-fallback>
+              <p>To schedule a visit in Charleston, call the showroom.</p>
+              <p><a class="phone" href="tel:+18433714636">(843) 371-4636</a></p>
+            </div>
+            <div class="book-live" data-book-live hidden>
+              <p class="book-live-note">Pick a time for the Charleston showroom.</p>
+              <p><a class="book-open" data-book-open target="_blank" rel="noopener noreferrer">Open the Charleston schedule<span class="sr-only"> (opens in a new tab)</span></a></p>
+              <div class="book-clip">
+                <iframe class="book-frame" title="Book a visit at the Charleston showroom" loading="lazy"></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2004,7 +2040,7 @@
         </address>
         <p>Monday to Saturday, 10 a.m. to 5 p.m.<br>Sunday closed</p>
         <p><a href="tel:+18644572400">(864) 457-2400</a></p>
-        <p><a href="#book">Schedule in Landrum</a></p>
+        <p><a href="#book-landrum" data-book="landrum">Schedule in Landrum</a></p>
       </div>
       <div>
         <h2>Charleston</h2>
@@ -2015,7 +2051,7 @@
         </address>
         <p>Monday to Saturday, 10 a.m. to 6 p.m.<br>Sunday closed</p>
         <p><a href="tel:+18433714636">(843) 371-4636</a></p>
-        <p><a href="#book">Schedule in Charleston</a></p>
+        <p><a href="#book-charleston" data-book="charleston">Schedule in Charleston</a></p>
       </div>
     </div>
     <div class="wrap footer-base">

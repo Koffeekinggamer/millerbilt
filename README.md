@@ -12,7 +12,14 @@ Live site: https://millerbilt.com/
 
 The former preview URL, https://koffeekinggamer.github.io/millerbilt/, will redirect to the custom domain once GitHub Pages has that domain set.
 
-Schedule buttons stay on this page and scroll to the embedded booking calendar at `#book`. Both locations use that same calendar for now, the Landrum schedule. This page does not collect its own form submissions.
+Schedule buttons stay on this page. The visitor chooses Landrum or Charleston at `#book`. Buttons for a showroom preselect it: Landrum uses `#book-landrum`, Charleston uses `#book-charleston`. Each showroom has its own Google Calendar appointment schedule. This page does not collect its own form submissions.
+
+The only place to set those links is the `BOOKING_URLS` object at the top of `js/main.js`:
+
+- `LANDRUM_BOOKING_URL` — Michael Holladay’s appointment schedule (michael@millerbilt.com)
+- `CHARLESTON_BOOKING_URL` — Lauren Manzin’s appointment schedule (lauren@millerbilt.com)
+
+Replace a placeholder with the full `https://calendar.google.com/calendar/appointments/schedules/…` URL. Until that value is a real appointment link, the page asks the visitor to call that showroom and does not embed a calendar.
 
 Also at the root: `robots.txt` (allows search and AI crawlers and points at the sitemap), `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Canonical, Open Graph, JSON-LD, and sitemap URLs use https://millerbilt.com/.
 
