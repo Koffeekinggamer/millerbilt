@@ -998,7 +998,18 @@ p {
 }
 
 .book-embed {
+  position: relative;
   margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  scroll-margin-top: calc(var(--header-h) + 1.25rem);
+}
+
+.book-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
   scroll-margin-top: calc(var(--header-h) + 1.25rem);
 }
 
@@ -1007,10 +1018,122 @@ p {
   margin-bottom: 0.85rem;
 }
 
-.book-embed p {
+.book-embed > p:not(.book-prompt) {
   max-width: 40rem;
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-bottom: 1.35rem;
   color: #ddd4c8;
+}
+
+.book-choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.book-option {
+  position: relative;
+}
+
+.book-radio {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.book-radio:focus {
+  outline: none;
+}
+
+.book-pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  min-width: 10.5rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(244, 239, 230, 0.45);
+  background: transparent;
+  color: var(--cream);
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.book-option:hover .book-pick {
+  border-color: var(--cream);
+}
+
+.book-radio:checked + .book-pick {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--charcoal);
+}
+
+.book-option:hover .book-radio:checked + .book-pick {
+  background: #fff;
+  border-color: #fff;
+}
+
+.book-radio:focus-visible + .book-pick {
+  outline: 2px solid #f4efe6;
+  outline-offset: 3px;
+}
+
+.book-prompt {
+  max-width: 40rem;
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  color: #ddd4c8;
+}
+
+.book-embed:has(.book-radio:checked) .book-prompt {
+  display: none;
+}
+
+.book-panel {
+  display: none;
+  margin-top: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+.book-embed:has(#pick-landrum:checked) #book-panel-landrum,
+.book-embed:has(#pick-charleston:checked) #book-panel-charleston {
+  display: block;
+}
+
+.book-fallback {
+  max-width: 36rem;
+}
+
+.book-fallback p,
+.book-live-note {
+  color: #ddd4c8;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.book-fallback .phone {
+  margin-top: 0.9rem;
+}
+
+.book-live-note {
+  max-width: 40rem;
+  margin-bottom: 0.75rem;
+}
+
+.book-open {
+  display: inline-block;
+  margin-bottom: 1.35rem;
+  color: #f4efe6;
+  text-underline-offset: 0.18em;
+}
+
+.book-open:hover {
+  color: #fff;
 }
 
 .book-clip {
@@ -1339,8 +1462,14 @@ p {
   }
 
   .btn,
-  .book-card .btn {
+  .book-card .btn,
+  .book-pick {
     width: 100%;
+  }
+
+  .book-option {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .hero-actions {
