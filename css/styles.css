@@ -293,12 +293,6 @@ p {
   margin-bottom: 1.4rem;
 }
 
-.hero-note {
-  margin-top: 1rem;
-  color: var(--muted);
-  max-width: 34rem;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
