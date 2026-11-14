@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20261114-4">
+  <link rel="stylesheet" href="css/styles.css?v=20261114-5">
   <link rel="preload" as="image" href="images/faf-cabinetry-showroom.jpg">
   <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">
@@ -86,7 +86,7 @@
         "potentialAction": {
           "@type": "ReserveAction",
           "name": "Schedule in Landrum",
-          "target": "https://millerbilt.com/#book-landrum"
+          "target": "https://foothillsamishfurniture.com/products/appointment?faf_staff=michael-holladay&faf_cabinetry=1"
         }
       },
       {
@@ -113,7 +113,7 @@
         "potentialAction": {
           "@type": "ReserveAction",
           "name": "Schedule in Charleston",
-          "target": "https://millerbilt.com/#book-charleston"
+          "target": "https://calendar.app.google/rnWxmnkiUnAPbouN6"
         }
       },
       {
@@ -1949,8 +1949,8 @@
           <h2 id="visit-title">Schedule a visit.</h2>
           <p class="lede">Meetings are by appointment. If you would rather talk first, call either location. Sunday is closed at both showrooms.</p>
         </header>
-        <div class="book-grid">
-          <article class="book-card" data-reveal>
+        <div class="book-grid" id="book">
+          <article class="book-card" id="book-landrum" data-reveal>
             <h3>MillerBilt Landrum</h3>
             <p class="place">Inside Foothills Amish Furniture</p>
             <address>
@@ -1961,9 +1961,8 @@
             <a class="phone" href="tel:+18644572400">(864) 457-2400</a>
             <a class="directions" href="https://www.google.com/maps/search/?api=1&amp;query=106+E.+Rutherford+St,+Landrum,+SC+29356" target="_blank" rel="noopener noreferrer">Directions<span class="sr-only"> to the Landrum showroom (opens in a new tab)</span></a>
             <a class="btn" href="#book-landrum" data-book="landrum">Schedule in Landrum</a>
-            <p class="book-note">Chooses the Landrum showroom below.</p>
           </article>
-          <article class="book-card" data-reveal>
+          <article class="book-card" id="book-charleston" data-reveal>
             <h3>MillerBilt Charleston</h3>
             <p class="place">Located independently inside Charleston Amish Furniture</p>
             <address>
@@ -1974,51 +1973,7 @@
             <a class="phone" href="tel:+18433714636">(843) 371-4636</a>
             <a class="directions" href="https://www.google.com/maps/search/?api=1&amp;query=1750+Sam+Rittenberg+Blvd,+Charleston,+SC+29407" target="_blank" rel="noopener noreferrer">Directions<span class="sr-only"> to the Charleston showroom (opens in a new tab)</span></a>
             <a class="btn" href="#book-charleston" data-book="charleston">Schedule in Charleston</a>
-            <p class="book-note">Chooses the Charleston showroom below.</p>
           </article>
-        </div>
-        <div class="book-embed" id="book">
-          <span id="book-landrum" class="book-anchor" aria-hidden="true"></span>
-          <span id="book-charleston" class="book-anchor" aria-hidden="true"></span>
-          <h3 id="book-title">Choose a showroom.</h3>
-          <p>Landrum and Charleston each have their own appointment schedule. Choose where you would like to visit.</p>
-          <div class="book-choice" role="group" aria-labelledby="book-title">
-            <div class="book-option">
-              <input class="book-radio" type="radio" name="book-showroom" id="pick-landrum" value="landrum" data-book-select="landrum">
-              <label class="book-pick" for="pick-landrum">Landrum</label>
-            </div>
-            <div class="book-option">
-              <input class="book-radio" type="radio" name="book-showroom" id="pick-charleston" value="charleston" data-book-select="charleston">
-              <label class="book-pick" for="pick-charleston">Charleston</label>
-            </div>
-          </div>
-          <p class="book-prompt" id="book-prompt">Select a showroom to schedule a visit.</p>
-          <div class="book-panel" id="book-panel-landrum" data-book-panel="landrum" role="region" aria-label="Landrum scheduling">
-            <div class="book-fallback" data-book-fallback>
-              <p>To schedule a visit in Landrum, call the showroom.</p>
-              <p><a class="phone" href="tel:+18644572400">(864) 457-2400</a></p>
-            </div>
-            <div class="book-live" data-book-live hidden>
-              <p class="book-live-note">Pick a time for the Landrum showroom.</p>
-              <p><a class="btn book-open" data-book-open target="_blank" rel="noopener noreferrer">Book an appointment<span class="sr-only"> (opens in a new tab)</span></a></p>
-              <div class="book-clip">
-                <iframe class="book-frame" title="Book a visit at the Landrum showroom" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-          <div class="book-panel" id="book-panel-charleston" data-book-panel="charleston" role="region" aria-label="Charleston scheduling">
-            <div class="book-fallback" data-book-fallback>
-              <p>To schedule a visit in Charleston, call the showroom.</p>
-              <p><a class="phone" href="tel:+18433714636">(843) 371-4636</a></p>
-            </div>
-            <div class="book-live" data-book-live hidden>
-              <p class="book-live-note">Pick a time for the Charleston showroom.</p>
-              <p><a class="btn book-open" data-book-open target="_blank" rel="noopener noreferrer">Book an appointment<span class="sr-only"> (opens in a new tab)</span></a></p>
-              <div class="book-clip">
-                <iframe class="book-frame" title="Book a visit at the Charleston showroom" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -2069,6 +2024,6 @@
     </figure>
   </dialog>
 
-  <script src="js/main.js?v=20261114-6"></script>
+  <script src="js/main.js?v=20261114-7"></script>
 </body>
 </html>

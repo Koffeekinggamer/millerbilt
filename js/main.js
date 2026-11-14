@@ -7,8 +7,8 @@
  * https://calendar.app.google/…
  * or the Foothills appointment page for Michael Holladay.
  *
- * A calendar.google.com schedules link is embedded. A calendar.app.google
- * link and the Foothills appointment page open in a new tab.
+ * A calendar.google.com schedules link, a calendar.app.google link, and the
+ * Foothills appointment page open in a new tab from the showroom cards.
  *
  * Landrum is Michael Holladay (michael@millerbilt.com).
  * Charleston is Lauren Manzin (lauren@millerbilt.com).
@@ -25,13 +25,11 @@
   var showrooms = {
     landrum: {
       placeholder: "LANDRUM_BOOKING_URL",
-      url: BOOKING_URLS.LANDRUM_BOOKING_URL,
-      hash: "#book-landrum"
+      url: BOOKING_URLS.LANDRUM_BOOKING_URL
     },
     charleston: {
       placeholder: "CHARLESTON_BOOKING_URL",
-      url: BOOKING_URLS.CHARLESTON_BOOKING_URL,
-      hash: "#book-charleston"
+      url: BOOKING_URLS.CHARLESTON_BOOKING_URL
     }
   };
 
@@ -63,71 +61,20 @@
     return { href: embed, embed: embed };
   }
 
-  function applySchedule(key) {
-    var showroom = showrooms[key];
-    var panel = document.querySelector('[data-book-panel="' + key + '"]');
-    if (!showroom || !panel) return;
-    var fallback = panel.querySelector("[data-book-fallback]");
-    var live = panel.querySelector("[data-book-live]");
-    var frame = panel.querySelector("iframe");
-    var clip = panel.querySelector(".book-clip");
-    var open = panel.querySelector("[data-book-open]");
-    var link = appointmentLink(showroom.url, showroom.placeholder);
-    if (!link) {
-      if (fallback) fallback.hidden = false;
-      if (live) live.hidden = true;
-      if (frame) frame.removeAttribute("src");
-      if (open) open.removeAttribute("href");
-      if (clip) clip.hidden = true;
-      return;
-    }
-    if (open) {
-      open.href = link.href;
-      open.target = "_blank";
-      open.rel = "noopener noreferrer";
-    }
-    if (frame) {
-      if (link.embed && frame.getAttribute("src") !== link.embed) frame.setAttribute("src", link.embed);
-      if (!link.embed) frame.removeAttribute("src");
-    }
-    if (clip) clip.hidden = !link.embed;
-    if (fallback) fallback.hidden = true;
-    if (live) live.hidden = false;
-  }
-
-  function select(key) {
-    var showroom = showrooms[key];
-    if (!showroom) return;
-    var radio = document.querySelector('.book-radio[data-book-select="' + key + '"]');
-    if (radio && !radio.checked) radio.checked = true;
-    applySchedule(key);
-  }
-
-  document.querySelectorAll(".book-radio").forEach(function (radio) {
-    radio.addEventListener("change", function () {
-      if (!radio.checked) return;
-      var key = radio.getAttribute("data-book-select");
-      applySchedule(key);
+  function applyBookingLinks() {
+    Object.keys(showrooms).forEach(function (key) {
       var showroom = showrooms[key];
-      if (showroom && location.hash !== showroom.hash) {
-        history.replaceState(null, "", showroom.hash);
-      }
+      var link = appointmentLink(showroom.url, showroom.placeholder);
+      if (!link) return;
+      document.querySelectorAll('[data-book="' + key + '"]').forEach(function (el) {
+        el.href = link.href;
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+      });
     });
-  });
+  }
 
-  document.querySelectorAll("[data-book]").forEach(function (link) {
-    link.addEventListener("click", function () {
-      select(link.getAttribute("data-book"));
-    });
-  });
-
-  window.addEventListener("hashchange", function () {
-    if (location.hash === "#book-landrum") select("landrum");
-    if (location.hash === "#book-charleston") select("charleston");
-  });
-
-  if (location.hash === "#book-landrum") select("landrum");
-  if (location.hash === "#book-charleston") select("charleston");
+  applyBookingLinks();
 })();
 
 (function () {
@@ -191,7 +138,6 @@
 
   markReveal(".project-head");
   markReveal(".note-body");
-  markReveal("#book");
   markReveal(".footer-grid");
   markReveal(".footer-base");
 
