@@ -78,6 +78,26 @@
 })();
 
 (function () {
+  if (!location.hash) window.scrollTo(0, 0);
+
+  document.addEventListener("click", function (event) {
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    var link = event.target.closest("a");
+    if (!link || link.target === "_blank") return;
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) !== "#") return;
+    var id = decodeURIComponent(href.slice(1));
+    var target = id ? document.getElementById(id) : null;
+    if (!target) return;
+    event.preventDefault();
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    if (history.pushState) history.pushState(null, "", href);
+  });
+})();
+
+(function () {
   var root = document.documentElement;
   var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   var desktopQuery = window.matchMedia("(min-width: 1040px)");

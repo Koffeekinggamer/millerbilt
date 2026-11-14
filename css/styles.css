@@ -1047,10 +1047,6 @@ p {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-
   .tier-icon::after {
     transition: transform 0.35s var(--ease);
   }
