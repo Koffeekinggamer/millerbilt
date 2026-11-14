@@ -2,12 +2,13 @@
  * BOOKING URLS — the only place to set appointment schedules.
  *
  * Replace LANDRUM_BOOKING_URL or CHARLESTON_BOOKING_URL with that
- * showroom's Google Calendar appointment link:
+ * showroom's booking link:
  * https://calendar.google.com/calendar/appointments/schedules/…
- * or a https://calendar.app.google/… booking link.
+ * https://calendar.app.google/…
+ * or the Foothills appointment page for Michael Holladay.
  *
- * A schedules link is embedded. A calendar.app.google link opens in a
- * new tab and is not embedded.
+ * A calendar.google.com schedules link is embedded. A calendar.app.google
+ * link and the Foothills appointment page open in a new tab.
  *
  * Landrum is Michael Holladay (michael@millerbilt.com).
  * Charleston is Lauren Manzin (lauren@millerbilt.com).
@@ -17,7 +18,7 @@
  */
 (function () {
   var BOOKING_URLS = {
-    LANDRUM_BOOKING_URL: "LANDRUM_BOOKING_URL",
+    LANDRUM_BOOKING_URL: "https://foothillsamishfurniture.com/products/appointment?faf_staff=michael-holladay&faf_cabinetry=1",
     CHARLESTON_BOOKING_URL: "https://calendar.app.google/rnWxmnkiUnAPbouN6"
   };
 
@@ -48,6 +49,11 @@
     if (parsed.username || parsed.password) return null;
     if (parsed.hostname === "calendar.app.google") {
       if (!parsed.pathname || parsed.pathname === "/") return null;
+      return { href: raw, embed: "" };
+    }
+    if (parsed.hostname === "foothillsamishfurniture.com" || parsed.hostname === "www.foothillsamishfurniture.com") {
+      var path = parsed.pathname.replace(/\/$/, "");
+      if (path !== "/products/appointment" && path !== "/products/60-minute-foothills-cabinetry-appointment") return null;
       return { href: raw, embed: "" };
     }
     if (parsed.hostname !== "calendar.google.com") return null;
