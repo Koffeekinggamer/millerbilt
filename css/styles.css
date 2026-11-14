@@ -1130,6 +1130,20 @@ p {
   color: #fff;
 }
 
+.book-live .btn.book-open {
+  margin-bottom: 0;
+  background: var(--cream);
+  color: var(--charcoal);
+  border-color: var(--cream);
+  text-decoration: none;
+}
+
+.book-live .btn.book-open:hover {
+  background: #fff;
+  color: var(--charcoal);
+  border-color: #fff;
+}
+
 .book-clip {
   overflow: hidden;
   background: #fff;

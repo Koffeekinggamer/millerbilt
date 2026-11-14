@@ -4,6 +4,10 @@
  * Replace LANDRUM_BOOKING_URL or CHARLESTON_BOOKING_URL with that
  * showroom's Google Calendar appointment link:
  * https://calendar.google.com/calendar/appointments/schedules/…
+ * or a https://calendar.app.google/… booking link.
+ *
+ * A schedules link is embedded. A calendar.app.google link opens in a
+ * new tab and is not embedded.
  *
  * Landrum is Michael Holladay (michael@millerbilt.com).
  * Charleston is Lauren Manzin (lauren@millerbilt.com).
@@ -14,7 +18,7 @@
 (function () {
   var BOOKING_URLS = {
     LANDRUM_BOOKING_URL: "LANDRUM_BOOKING_URL",
-    CHARLESTON_BOOKING_URL: "CHARLESTON_BOOKING_URL"
+    CHARLESTON_BOOKING_URL: "https://calendar.app.google/rnWxmnkiUnAPbouN6"
   };
 
   var showrooms = {
@@ -30,21 +34,27 @@
     }
   };
 
-  function appointmentUrl(value, placeholder) {
-    if (typeof value !== "string") return "";
+  function appointmentLink(value, placeholder) {
+    if (typeof value !== "string") return null;
     var raw = value.trim();
-    if (!raw || raw === placeholder) return "";
+    if (!raw || raw === placeholder) return null;
     var parsed;
     try {
       parsed = new URL(raw);
     } catch (error) {
-      return "";
+      return null;
     }
-    if (parsed.protocol !== "https:") return "";
-    if (parsed.hostname !== "calendar.google.com") return "";
-    if (parsed.pathname.indexOf("/appointments/") === -1) return "";
+    if (parsed.protocol !== "https:") return null;
+    if (parsed.username || parsed.password) return null;
+    if (parsed.hostname === "calendar.app.google") {
+      if (!parsed.pathname || parsed.pathname === "/") return null;
+      return { href: raw, embed: "" };
+    }
+    if (parsed.hostname !== "calendar.google.com") return null;
+    if (parsed.pathname.indexOf("/appointments/") === -1) return null;
     parsed.searchParams.set("gv", "true");
-    return parsed.toString();
+    var embed = parsed.toString();
+    return { href: embed, embed: embed };
   }
 
   function applySchedule(key) {
@@ -54,17 +64,27 @@
     var fallback = panel.querySelector("[data-book-fallback]");
     var live = panel.querySelector("[data-book-live]");
     var frame = panel.querySelector("iframe");
+    var clip = panel.querySelector(".book-clip");
     var open = panel.querySelector("[data-book-open]");
-    var embed = appointmentUrl(showroom.url, showroom.placeholder);
-    if (!embed) {
+    var link = appointmentLink(showroom.url, showroom.placeholder);
+    if (!link) {
       if (fallback) fallback.hidden = false;
       if (live) live.hidden = true;
       if (frame) frame.removeAttribute("src");
       if (open) open.removeAttribute("href");
+      if (clip) clip.hidden = true;
       return;
     }
-    if (frame && frame.getAttribute("src") !== embed) frame.setAttribute("src", embed);
-    if (open) open.href = embed;
+    if (open) {
+      open.href = link.href;
+      open.target = "_blank";
+      open.rel = "noopener noreferrer";
+    }
+    if (frame) {
+      if (link.embed && frame.getAttribute("src") !== link.embed) frame.setAttribute("src", link.embed);
+      if (!link.embed) frame.removeAttribute("src");
+    }
+    if (clip) clip.hidden = !link.embed;
     if (fallback) fallback.hidden = true;
     if (live) live.hidden = false;
   }
