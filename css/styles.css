@@ -207,12 +207,12 @@ p {
 }
 
 .brand-mark {
-  height: 46px;
+  height: 60px;
   width: auto;
 }
 
 .brand-word {
-  height: 44px;
+  height: 56px;
   width: auto;
 }
 
@@ -1735,11 +1735,11 @@ html.reduce-motion.motion .split-intro.is-in > * {
   }
 
   .brand-mark {
-    height: 38px;
+    height: 48px;
   }
 
   .brand-word {
-    height: 36px;
+    height: 46px;
   }
 
   .hero h1 {
