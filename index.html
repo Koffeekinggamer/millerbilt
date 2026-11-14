@@ -27,11 +27,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20261114-6">
+  <link rel="stylesheet" href="css/styles.css?v=20261114-7">
   <link rel="preload" as="image" href="images/faf-cabinetry-showroom.jpg">
   <script>
     document.documentElement.classList.add("js");
+    document.documentElement.style.scrollBehavior = "auto";
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    (function () {
+      var hold = true;
+      function pinTop() {
+        if (!hold) return;
+        if (window.scrollX !== 0 || window.scrollY !== 0) window.scrollTo(0, 0);
+      }
+      function release() {
+        hold = false;
+        window.removeEventListener("scroll", pinTop);
+      }
+      window.addEventListener("scroll", pinTop, { passive: true });
+      ["pointerdown", "wheel", "touchstart", "keydown"].forEach(function (type) {
+        window.addEventListener(type, release, { capture: true, passive: true, once: true });
+      });
+      window.addEventListener("load", function () {
+        pinTop();
+        setTimeout(release, 600);
+      });
+      pinTop();
+    })();
   </script>
   <script type="application/ld+json">
   {
@@ -2027,6 +2048,6 @@
     </figure>
   </dialog>
 
-  <script src="js/main.js?v=20261114-8"></script>
+  <script src="js/main.js?v=20261114-9"></script>
 </body>
 </html>
