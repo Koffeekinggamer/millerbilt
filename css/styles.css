@@ -1228,48 +1228,326 @@ p {
   }
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  background: var(--walnut);
+  transform: scaleX(var(--scroll-p, 0));
+  transform-origin: left center;
+}
+
 .motion [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
+  transform: translate3d(0, 22px, 0);
 }
 
 .motion [data-reveal].is-in {
   opacity: 1;
   transform: none;
-  transition: opacity 0.95s var(--ease), transform 0.95s var(--ease);
+  transition: opacity 0.85s var(--ease), transform 0.95s var(--ease);
+  transition-delay: var(--d, 0ms);
 }
 
-.motion .plate-open img,
-.motion .bleed-frame img,
-.motion .person-frame img,
-.motion .hero-frame img {
-  transform: scale(1.045);
-  transition: transform 1.5s var(--ease);
+.motion .hero-copy,
+.motion .hero-copy.is-in,
+.motion .section-head,
+.motion .section-head.is-in,
+.motion .about-copy,
+.motion .about-copy.is-in,
+.motion .note-body,
+.motion .note-body.is-in,
+.motion .chapter,
+.motion .chapter.is-in,
+.motion .split-intro,
+.motion .split-intro.is-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
-.motion .chapter.is-in .plate-open img,
-.motion .mosaic.is-in .plate-open img,
-.motion .bleed.is-in .bleed-frame img,
-.motion .person.is-in .person-frame img,
-.motion .hero-figure.is-in img {
-  transform: scale(1);
+.motion .hero-copy > *,
+.motion .section-head > *,
+.motion .about-copy > *,
+.motion .note-body > *,
+.motion .chapter > *,
+.motion .split-intro > * {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+}
+
+.motion .hero-copy.is-in > *,
+.motion .section-head.is-in > *,
+.motion .about-copy.is-in > *,
+.motion .note-body.is-in > *,
+.motion .chapter.is-in > *,
+.motion .split-intro.is-in > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+
+.motion .hero-copy.is-in > :nth-child(2),
+.motion .section-head.is-in > :nth-child(2),
+.motion .about-copy.is-in > :nth-child(2),
+.motion .note-body.is-in > :nth-child(2),
+.motion .chapter.is-in > :nth-child(2),
+.motion .split-intro.is-in > :nth-child(2) {
+  --d: 90ms;
+}
+
+.motion .hero-copy.is-in > :nth-child(3),
+.motion .section-head.is-in > :nth-child(3),
+.motion .about-copy.is-in > :nth-child(3),
+.motion .note-body.is-in > :nth-child(3),
+.motion .chapter.is-in > :nth-child(3),
+.motion .split-intro.is-in > :nth-child(3) {
+  --d: 170ms;
+}
+
+.motion .hero-copy.is-in > :nth-child(4),
+.motion .section-head.is-in > :nth-child(4),
+.motion .about-copy.is-in > :nth-child(4),
+.motion .note-body.is-in > :nth-child(4),
+.motion .chapter.is-in > :nth-child(4),
+.motion .split-intro.is-in > :nth-child(4) {
+  --d: 250ms;
+}
+
+.motion .note-body.is-in > :nth-child(5) {
+  --d: 320ms;
+}
+
+.motion .hero-copy .eyebrow::after,
+.motion .section-head .eyebrow::after,
+.motion .about-copy .eyebrow::after,
+.motion .note-body .eyebrow::after,
+.motion .split-intro .eyebrow::after {
+  content: "";
+  display: block;
+  width: 2.15rem;
+  height: 1px;
+  margin-top: 0.55rem;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.8s var(--ease);
+}
+
+.motion .is-in > .eyebrow::after {
+  transform: scaleX(1);
+}
+
+.motion:not(.reduce-motion) .hero-copy {
+  transform: translate3d(0, var(--copy-y, 0px), 0);
+}
+
+.motion:not(.reduce-motion) .about-mark,
+.motion:not(.reduce-motion) .about-mark.is-in {
+  transform: translate3d(0, var(--py, 0px), 0);
+  transition: opacity 0.9s var(--ease);
+}
+
+.motion:not(.reduce-motion) .hero-parallax {
+  transform: translate3d(0, var(--py, 0px), 0);
+}
+
+.motion:not(.reduce-motion) .plate-open img,
+.motion:not(.reduce-motion) .bleed-frame img,
+.motion:not(.reduce-motion) .person-frame img,
+.motion:not(.reduce-motion) .partner-mark img {
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.12);
+  transform-origin: center center;
+}
+
+.motion:not(.reduce-motion) .series,
+.motion:not(.reduce-motion) .note,
+.motion:not(.reduce-motion) .visit,
+.motion:not(.reduce-motion) .site-footer {
+  position: relative;
+}
+
+.motion:not(.reduce-motion) .series > :not(.drift),
+.motion:not(.reduce-motion) .note > :not(.drift),
+.motion:not(.reduce-motion) .visit > :not(.drift),
+.motion:not(.reduce-motion) .site-footer > :not(.drift) {
+  position: relative;
+  z-index: 1;
+}
+
+.drift {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.drift-a,
+.drift-b {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 68%;
+}
+
+.drift-a {
+  top: -10%;
+  transform: translate3d(0, var(--layer-a, 0px), 0);
+  background: radial-gradient(56% 70% at 18% 40%, rgba(107, 78, 56, 0.09), transparent 72%);
+}
+
+.drift-b {
+  bottom: -12%;
+  height: 58%;
+  transform: translate3d(0, var(--layer-b, 0px), 0);
+  background: radial-gradient(48% 68% at 84% 60%, rgba(107, 78, 56, 0.06), transparent 70%);
+}
+
+.visit .drift-a,
+.site-footer .drift-a {
+  background: radial-gradient(52% 70% at 16% 30%, rgba(244, 239, 230, 0.07), transparent 72%);
+}
+
+.visit .drift-b,
+.site-footer .drift-b {
+  background: radial-gradient(46% 64% at 86% 70%, rgba(228, 211, 195, 0.05), transparent 70%);
+}
+
+.motion:not(.reduce-motion) .steps {
+  position: relative;
+}
+
+.motion:not(.reduce-motion) .steps::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  background: var(--walnut);
+  transform: scaleX(var(--steps-p, 0));
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+@media (max-width: 759px) {
+  .motion [data-reveal] {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  .motion .hero-copy > *,
+  .motion .section-head > *,
+  .motion .about-copy > *,
+  .motion .note-body > *,
+  .motion .chapter > *,
+  .motion .split-intro > * {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  .motion .hero-copy,
+  .motion .hero-copy.is-in,
+  .motion .section-head,
+  .motion .section-head.is-in,
+  .motion .about-copy,
+  .motion .about-copy.is-in,
+  .motion .note-body,
+  .motion .note-body.is-in,
+  .motion .chapter,
+  .motion .chapter.is-in,
+  .motion .split-intro,
+  .motion .split-intro.is-in {
+    transform: none;
+  }
+
+  .motion:not(.reduce-motion) .hero-copy,
+  .motion:not(.reduce-motion) .hero-copy.is-in {
+    transform: translate3d(0, var(--copy-y, 0px), 0);
+  }
+
+  .motion:not(.reduce-motion) .plate-open img,
+  .motion:not(.reduce-motion) .bleed-frame img,
+  .motion:not(.reduce-motion) .person-frame img,
+  .motion:not(.reduce-motion) .partner-mark img {
+    transform: translate3d(0, var(--py, 0px), 0) scale(1.07);
+  }
+}
+
+@media (min-width: 760px) {
+  .motion .offer-list > li:nth-child(odd),
+  .motion .steps > li:nth-child(odd),
+  .motion .partners-list > li:nth-child(odd) {
+    transform: translate3d(-14px, 18px, 0);
+  }
+
+  .motion .offer-list > li:nth-child(even),
+  .motion .steps > li:nth-child(even),
+  .motion .partners-list > li:nth-child(even) {
+    transform: translate3d(14px, 18px, 0);
+  }
+
+  .motion .offer-list > li.is-in,
+  .motion .steps > li.is-in,
+  .motion .partners-list > li.is-in {
+    transform: none;
+  }
+}
+
+html.reduce-motion {
+  scroll-behavior: auto;
+}
+
+html.reduce-motion .scroll-progress,
+html.reduce-motion .drift,
+html.reduce-motion .hero-copy .eyebrow::after,
+html.reduce-motion .section-head .eyebrow::after,
+html.reduce-motion .about-copy .eyebrow::after,
+html.reduce-motion .note-body .eyebrow::after,
+html.reduce-motion .split-intro .eyebrow::after {
+  display: none;
+}
+
+html.reduce-motion.motion [data-reveal],
+html.reduce-motion.motion .hero-copy > *,
+html.reduce-motion.motion .section-head > *,
+html.reduce-motion.motion .about-copy > *,
+html.reduce-motion.motion .note-body > *,
+html.reduce-motion.motion .chapter > *,
+html.reduce-motion.motion .split-intro > *,
+html.reduce-motion .plate-open img,
+html.reduce-motion .bleed-frame img,
+html.reduce-motion .person-frame img,
+html.reduce-motion .partner-mark img,
+html.reduce-motion .hero-parallax,
+html.reduce-motion .hero-copy,
+html.reduce-motion .about-mark,
+html.reduce-motion .about-mark.is-in {
+  transform: none !important;
+}
+
+html.reduce-motion.motion [data-reveal].is-in,
+html.reduce-motion.motion .hero-copy.is-in > *,
+html.reduce-motion.motion .section-head.is-in > *,
+html.reduce-motion.motion .about-copy.is-in > *,
+html.reduce-motion.motion .note-body.is-in > *,
+html.reduce-motion.motion .chapter.is-in > *,
+html.reduce-motion.motion .split-intro.is-in > * {
+  transition: opacity 0.4s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .motion [data-reveal],
-  .motion [data-reveal].is-in,
-  .motion .plate-open img,
-  .motion .bleed-frame img,
-  .motion .person-frame img,
-  .motion .hero-frame img,
-  .hero-parallax {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
   }
 }
 
@@ -1343,8 +1621,7 @@ p {
   }
 
   .hero-parallax {
-    height: 100%;
-    transform: none !important;
+    height: 114%;
   }
 
   .split,

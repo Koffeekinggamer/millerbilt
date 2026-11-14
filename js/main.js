@@ -111,7 +111,6 @@
   var header = document.querySelector(".site-header");
   var nav = document.querySelector(".site-nav");
   var toggle = document.querySelector(".menu-toggle");
-  var parallax = document.querySelector("[data-parallax]");
 
   function setMenu(open) {
     if (!nav || !toggle) return;
@@ -148,86 +147,239 @@
   onHeaderScroll();
   window.addEventListener("scroll", onHeaderScroll, { passive: true });
 
-  function clearParallax() {
-    if (parallax) parallax.style.transform = "";
+  var phoneQuery = window.matchMedia("(max-width: 759px)");
+  var heroCopy = document.querySelector(".hero-copy");
+  var steps = document.querySelector(".steps");
+  var driftHosts = document.querySelectorAll(".series, .note, .visit, .site-footer");
+  var panNodes = document.querySelectorAll(
+    ".hero-parallax, .plate-open img, .bleed-frame img, .person-frame img, .partner-mark img, .about-mark"
+  );
+  var progress = null;
+  var ticking = false;
+
+  function markReveal(selector) {
+    document.querySelectorAll(selector).forEach(function (el) {
+      if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
+    });
   }
 
-  function enableParallax() {
-    if (!parallax) return;
+  markReveal(".project-head");
+  markReveal(".note-body");
+  markReveal("#book");
+  markReveal(".footer-grid");
+  markReveal(".footer-base");
 
-    var ticking = false;
+  var tierWrap = document.querySelector(".tiers");
+  if (tierWrap) {
+    tierWrap.removeAttribute("data-reveal");
+    tierWrap.querySelectorAll(".tier").forEach(function (tier) {
+      tier.setAttribute("data-reveal", "");
+    });
+  }
 
-    function paint() {
-      ticking = false;
-      if (!desktopQuery.matches || motionQuery.matches) {
-        clearParallax();
-        return;
+  function stagger(selector, step) {
+    document.querySelectorAll(selector).forEach(function (el, index) {
+      el.style.setProperty("--d", Math.min(index, 6) * step + "ms");
+    });
+  }
+
+  stagger(".offer-list > [data-reveal]", 90);
+  stagger(".steps > [data-reveal]", 110);
+  stagger(".team-grid > [data-reveal]", 80);
+  stagger(".partners-list > [data-reveal]", 90);
+  stagger(".book-grid > [data-reveal]", 120);
+  stagger(".tiers > [data-reveal]", 80);
+
+  function mountDrifts() {
+    driftHosts.forEach(function (host) {
+      if (host.querySelector(".drift")) return;
+      var veil = document.createElement("div");
+      var near = document.createElement("span");
+      var far = document.createElement("span");
+      veil.className = "drift";
+      veil.setAttribute("aria-hidden", "true");
+      near.className = "drift-a";
+      far.className = "drift-b";
+      veil.appendChild(near);
+      veil.appendChild(far);
+      host.insertBefore(veil, host.firstChild);
+    });
+  }
+
+  function mountProgress() {
+    if (progress) return;
+    progress = document.createElement("div");
+    progress.className = "scroll-progress";
+    progress.setAttribute("aria-hidden", "true");
+    progress.appendChild(document.createElement("span"));
+    document.body.appendChild(progress);
+  }
+
+  function clearMotionVars() {
+    root.style.removeProperty("--scroll-p");
+    if (heroCopy) heroCopy.style.removeProperty("--copy-y");
+    if (steps) steps.style.removeProperty("--steps-p");
+    panNodes.forEach(function (el) {
+      el.style.removeProperty("--py");
+    });
+    driftHosts.forEach(function (host) {
+      host.style.removeProperty("--layer-a");
+      host.style.removeProperty("--layer-b");
+    });
+  }
+
+  function maxTravel(el) {
+    var phone = phoneQuery.matches;
+    var cap = phone ? 12 : desktopQuery.matches ? 34 : 20;
+    if (el.classList.contains("hero-parallax")) {
+      var frame = el.parentElement;
+      var extra = frame ? el.offsetHeight - frame.clientHeight : 0;
+      return Math.max(0, Math.min(cap, extra / 2 - 3));
+    }
+    if (el.classList.contains("about-mark")) return phone ? 6 : 14;
+    var scaleRoom = phone ? 0.03 : 0.05;
+    return Math.max(0, Math.min(cap, el.clientHeight * scaleRoom));
+  }
+
+  function paint() {
+    ticking = false;
+    if (motionQuery.matches) return;
+
+    var viewH = window.innerHeight || 1;
+    var viewW = window.innerWidth || 1;
+    var phone = viewW <= 759;
+    var speed = phone ? 0.045 : desktopQuery.matches ? 0.11 : 0.07;
+    var maxScroll = root.scrollHeight - viewH;
+    var reads = [];
+    var i;
+
+    for (i = 0; i < panNodes.length; i++) {
+      var el = panNodes[i];
+      var rect = el.getBoundingClientRect();
+      var limit = 0;
+      if (rect.height >= 2 && rect.bottom >= -80 && rect.top <= viewH + 80) limit = maxTravel(el);
+      reads.push({ rect: rect, limit: limit });
+    }
+
+    var hostReads = [];
+    for (i = 0; i < driftHosts.length; i++) {
+      hostReads.push(driftHosts[i].getBoundingClientRect());
+    }
+
+    var heroRect = heroCopy ? heroCopy.getBoundingClientRect() : null;
+    var stepRect = steps ? steps.getBoundingClientRect() : null;
+
+    root.style.setProperty("--scroll-p", maxScroll > 0 ? (window.scrollY / maxScroll).toFixed(4) : "0");
+
+    for (i = 0; i < panNodes.length; i++) {
+      var node = panNodes[i];
+      var box = reads[i].rect;
+      if (box.height < 2 || box.bottom < -80 || box.top > viewH + 80) {
+        if (node.style.getPropertyValue("--py")) node.style.setProperty("--py", "0px");
+        continue;
       }
-      var frame = parallax.parentElement;
-      if (!frame) return;
-      var rect = frame.getBoundingClientRect();
-      var viewH = window.innerHeight || 1;
-      var progress = (rect.top + rect.height / 2 - viewH / 2) / viewH;
-      var shift = Math.max(-36, Math.min(36, progress * -42));
-      parallax.style.transform = "translate3d(0, " + shift.toFixed(2) + "px, 0)";
+      var center = box.top + box.height / 2 - viewH / 2;
+      var shift = Math.max(-reads[i].limit, Math.min(reads[i].limit, center * speed * -1));
+      var next = shift.toFixed(2) + "px";
+      if (node.style.getPropertyValue("--py") !== next) node.style.setProperty("--py", next);
     }
 
-    function requestPaint() {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(paint);
+    if (heroCopy && heroRect) {
+      var copyAmp = phone ? 6 : 16;
+      var copyShift = ((heroRect.top + heroRect.height / 2 - viewH / 2) / viewH) * copyAmp;
+      heroCopy.style.setProperty("--copy-y", copyShift.toFixed(2) + "px");
     }
 
-    paint();
-    window.addEventListener("scroll", requestPaint, { passive: true });
-    window.addEventListener("resize", requestPaint, { passive: true });
+    for (i = 0; i < driftHosts.length; i++) {
+      var hostBox = hostReads[i];
+      if (hostBox.bottom < 0 || hostBox.top > viewH) continue;
+      var depth = (hostBox.top + hostBox.height / 2 - viewH / 2) / viewH;
+      var layerAmp = phone ? 10 : 26;
+      driftHosts[i].style.setProperty("--layer-a", (depth * layerAmp * -1).toFixed(2) + "px");
+      driftHosts[i].style.setProperty("--layer-b", (depth * layerAmp * 0.45).toFixed(2) + "px");
+    }
+
+    if (steps && stepRect) {
+      var amount = (viewH * 0.92 - stepRect.top) / (viewH * 0.5);
+      steps.style.setProperty("--steps-p", Math.min(1, Math.max(0, amount)).toFixed(3));
+    }
   }
 
-  enableParallax();
-  desktopQuery.addEventListener("change", function () {
-    if (!desktopQuery.matches) clearParallax();
-  });
+  function requestPaint() {
+    if (ticking || motionQuery.matches) return;
+    ticking = true;
+    window.requestAnimationFrame(paint);
+  }
 
-  if (motionQuery.matches || !("IntersectionObserver" in window)) return;
+  function syncMode() {
+    var reduce = motionQuery.matches;
+    root.classList.toggle("reduce-motion", reduce);
+    root.classList.add("motion");
+    if (reduce) {
+      clearMotionVars();
+      if (progress) progress.remove();
+      progress = null;
+      document.querySelectorAll(".drift").forEach(function (veil) {
+        veil.remove();
+      });
+      return;
+    }
+    mountProgress();
+    mountDrifts();
+    paint();
+  }
 
   var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
-  if (!nodes.length) return;
 
-  root.classList.add("motion");
+  syncMode();
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-in");
-        observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.14 }
-  );
+  if ("IntersectionObserver" in window && nodes.length) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.12 }
+    );
 
-  nodes.forEach(function (node) {
-    observer.observe(node);
-  });
+    nodes.forEach(function (node) {
+      observer.observe(node);
+    });
 
-  window.requestAnimationFrame(function () {
     window.requestAnimationFrame(function () {
-      nodes.forEach(function (node) {
-        var rect = node.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
-          node.classList.add("is-in");
-        }
+      window.requestAnimationFrame(function () {
+        nodes.forEach(function (node) {
+          var rect = node.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.94 && rect.bottom > 0) {
+            node.classList.add("is-in");
+          }
+        });
       });
+    });
+  } else {
+    nodes.forEach(function (node) {
+      node.classList.add("is-in");
+    });
+  }
+
+  window.addEventListener("scroll", requestPaint, { passive: true });
+  window.addEventListener("resize", requestPaint, { passive: true });
+  document.querySelectorAll(".see-more").forEach(function (button) {
+    button.addEventListener("click", function () {
+      window.requestAnimationFrame(requestPaint);
     });
   });
 
   motionQuery.addEventListener("change", function () {
-    if (!motionQuery.matches) return;
-    root.classList.remove("motion");
-    clearParallax();
-    nodes.forEach(function (node) {
-      node.classList.add("is-in");
-    });
+    if (motionQuery.matches) {
+      nodes.forEach(function (node) {
+        node.classList.add("is-in");
+      });
+    }
+    syncMode();
   });
 })();
 
