@@ -5,10 +5,9 @@
  * showroom's booking link:
  * https://calendar.google.com/calendar/appointments/schedules/…
  * https://calendar.app.google/…
- * or the Foothills appointment page for Michael Holladay.
  *
- * A calendar.google.com schedules link, a calendar.app.google link, and the
- * Foothills appointment page open in a new tab from the showroom cards.
+ * A calendar.google.com schedules link and a calendar.app.google link
+ * open in a new tab from the showroom cards.
  *
  * Landrum is Michael Holladay (michael@millerbilt.com).
  * Charleston is Lauren Manzin (lauren@millerbilt.com).
@@ -18,7 +17,7 @@
  */
 (function () {
   var BOOKING_URLS = {
-    LANDRUM_BOOKING_URL: "https://foothillsamishfurniture.com/products/appointment?faf_staff=michael-holladay&faf_cabinetry=1",
+    LANDRUM_BOOKING_URL: "https://calendar.app.google/vaJ4ZSxPxy5kznrv8",
     CHARLESTON_BOOKING_URL: "https://calendar.app.google/rnWxmnkiUnAPbouN6"
   };
 
@@ -47,11 +46,6 @@
     if (parsed.username || parsed.password) return null;
     if (parsed.hostname === "calendar.app.google") {
       if (!parsed.pathname || parsed.pathname === "/") return null;
-      return { href: raw, embed: "" };
-    }
-    if (parsed.hostname === "foothillsamishfurniture.com" || parsed.hostname === "www.foothillsamishfurniture.com") {
-      var path = parsed.pathname.replace(/\/$/, "");
-      if (path !== "/products/appointment" && path !== "/products/60-minute-foothills-cabinetry-appointment") return null;
       return { href: raw, embed: "" };
     }
     if (parsed.hostname !== "calendar.google.com") return null;
