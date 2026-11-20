@@ -382,10 +382,10 @@
       var cap = figure && figure.querySelector("figcaption");
       if (!img) return;
       event.preventDefault();
-      viewerImg.src = img.currentSrc || img.src;
+      viewerImg.src = link.getAttribute("href") || img.currentSrc || img.src;
       viewerImg.alt = img.alt || "";
-      viewerImg.width = img.naturalWidth || img.width;
-      viewerImg.height = img.naturalHeight || img.height;
+      viewerImg.width = Number(img.getAttribute("width")) || img.naturalWidth || img.width;
+      viewerImg.height = Number(img.getAttribute("height")) || img.naturalHeight || img.height;
       if (viewerCap) {
         viewerCap.textContent = cap ? cap.textContent.trim() : "";
         viewerCap.hidden = !viewerCap.textContent;
