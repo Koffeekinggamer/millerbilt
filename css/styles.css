@@ -1572,3 +1572,44 @@ html.reduce-motion.motion .split-intro.is-in > * {
     flex-direction: column;
   }
 }
+
+/* Responsive image wrappers keep existing img rules. */
+picture {
+  display: contents;
+}
+
+@media (max-width: 1039px) {
+  .js .see-more,
+  .project-nav a,
+  .book-card .directions,
+  .book-card .phone,
+  .site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  /* Keep underlines against the text, not at the bottom of the taller hit area. */
+  .js .see-more,
+  .book-card .phone {
+    border-bottom-color: transparent;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 calc(50% + 0.62em);
+  }
+
+  .book-card .phone:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+@media (max-width: 759px) {
+  .eyebrow,
+  .process-flag,
+  .chapter h4,
+  .js .see-more,
+  .viewer-close {
+    font-size: 0.83rem;
+  }
+}
