@@ -896,6 +896,9 @@ p {
   letter-spacing: -0.03em;
   text-decoration: none;
   line-height: 1.15;
+  /* 44px+ tap target. Vertical padding on an inline link grows its hit
+     area without changing the line box, so the text doesn't move. */
+  padding-block: 0.5rem;
 }
 
 .partner a:hover {
