@@ -2,7 +2,7 @@
 
 Static marketing site for MillerBilt Cabinetry. Custom Amish-made cabinets, with showrooms in Landrum and Charleston, South Carolina.
 
-The site is a single page at the repository root: `index.html`, with `css/`, `js/`, and `images/`.
+The site is a single page at the repository root: `index.html`, with `css/`, `js/`, `images/`, and `fonts/`. Fraunces and Outfit are self-hosted in `fonts/` (copies of the Google Fonts files, SIL Open Font License); the `@font-face` rules are inline in the `<head>` of `index.html`.
 
 ## GitHub Pages
 
